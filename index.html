@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jie (Hayley) Huang — PhD Candidate in Health Informatics</title>
+<meta name="description" content="Jie Huang, PhD Candidate in Health Informatics at the University of Melbourne. Research on longitudinal EHR modelling with language models, EHR foundation models, and synthetic patient data generation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F9F8;
+  --surface:#FFFFFF;
+  --ink:#17272E;
+  --ink-soft:#4E626B;
+  --teal:#0E7472;
+  --teal-soft:#DCEEEC;
+  --line:#D8E2E0;
+  --amber:#B4690E;
+  --amber-soft:#F7EBD8;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --serif:'IBM Plex Serif',Georgia,serif;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;background:rgba(246,249,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .logo{font-family:var(--mono);font-size:.85rem;font-weight:500;color:var(--ink);letter-spacing:.02em}
+nav .logo:hover{text-decoration:none;color:var(--teal)}
+nav ul{display:flex;gap:22px;list-style:none}
+nav ul a{font-size:.85rem;color:var(--ink-soft);font-weight:500}
+nav ul a:hover{color:var(--teal);text-decoration:none}
+@media(max-width:640px){nav ul{gap:14px}nav ul li:nth-child(n+5){display:none}}
+
+/* ---------- hero ---------- */
+header{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+.hero-tag{font-family:var(--mono);font-size:.78rem;color:var(--teal);letter-spacing:.06em;margin-bottom:14px}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5vw,2.9rem);line-height:1.15;margin-bottom:16px}
+.hero-sub{font-size:1.05rem;color:var(--ink-soft);max-width:640px;margin-bottom:26px}
+.hero-sub strong{color:var(--ink);font-weight:600}
+.hero-links{display:flex;flex-wrap:wrap;gap:10px}
+.hero-links a{font-family:var(--mono);font-size:.8rem;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);transition:border-color .15s,color .15s}
+.hero-links a:hover{border-color:var(--teal);color:var(--teal);text-decoration:none}
+
+/* ---------- sections ---------- */
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+h2{font-family:var(--serif);font-weight:600;font-size:1.45rem;margin-bottom:8px}
+.sec-note{font-family:var(--mono);font-size:.75rem;color:var(--ink-soft);margin-bottom:28px}
+
+/* ---------- research interests ---------- */
+.interest-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.interest{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 18px 16px}
+.interest h3{font-size:.95rem;font-weight:600;margin-bottom:6px}
+.interest p{font-size:.87rem;color:var(--ink-soft)}
+.interest .k{font-family:var(--mono);font-size:.7rem;color:var(--teal);display:block;margin-bottom:8px;letter-spacing:.05em}
+
+/* ---------- publications ---------- */
+.pub{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:14px}
+.pub .status{font-family:var(--mono);font-size:.7rem;padding:3px 9px;border-radius:999px;display:inline-block;margin-bottom:10px}
+.status.accepted{background:var(--teal-soft);color:var(--teal)}
+.status.review{background:var(--amber-soft);color:var(--amber)}
+.pub h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;line-height:1.4;margin-bottom:6px}
+.pub .authors{font-size:.87rem;color:var(--ink-soft);margin-bottom:4px}
+.pub .authors b{color:var(--ink);font-weight:600}
+.pub .venue{font-size:.87rem;font-style:italic;color:var(--ink-soft);margin-bottom:8px}
+.pub .plinks{font-family:var(--mono);font-size:.78rem}
+
+/* ---------- trajectory timeline (signature) ---------- */
+.traj{position:relative;padding-left:150px}
+.traj::before{content:"";position:absolute;left:118px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--teal) 0%,var(--line) 100%)}
+.event{position:relative;margin-bottom:34px}
+.event:last-child{margin-bottom:0}
+.event::before{content:"";position:absolute;left:-37px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px solid var(--teal)}
+.event .ts{position:absolute;left:-150px;top:4px;width:100px;text-align:right;font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);line-height:1.5}
+.event h3{font-size:1rem;font-weight:600;margin-bottom:2px}
+.event .org{font-size:.87rem;color:var(--teal);font-weight:500;margin-bottom:6px}
+.event p,.event li{font-size:.88rem;color:var(--ink-soft)}
+.event ul{padding-left:18px;margin-top:4px}
+.event li{margin-bottom:4px}
+@media(max-width:640px){
+  .traj{padding-left:26px}
+  .traj::before{left:4px}
+  .event::before{left:-27px}
+  .event .ts{position:static;text-align:left;width:auto;display:block;margin-bottom:2px;color:var(--teal)}
+}
+
+/* ---------- awards / skills ---------- */
+.plain-list{list-style:none}
+.plain-list li{padding:10px 0;border-bottom:1px dashed var(--line);font-size:.92rem;display:flex;justify-content:space-between;gap:16px}
+.plain-list li:last-child{border-bottom:none}
+.plain-list .yr{font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);white-space:nowrap}
+.skill-row{margin-bottom:14px}
+.skill-row .k{font-family:var(--mono);font-size:.72rem;color:var(--teal);letter-spacing:.05em;display:block;margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.8rem;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--ink)}
+
+/* ---------- footer ---------- */
+footer{padding:40px 0 56px;color:var(--ink-soft);font-size:.82rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer .mono{font-family:var(--mono);font-size:.72rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">jie.huang</a>
+    <ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#trajectory">Trajectory</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#awards">Awards</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap">
+    <div class="hero-tag">patient_id: jie_huang · status: phd_candidate · site: unimelb</div>
+    <h1>Jie (Hayley) Huang</h1>
+    <p class="hero-sub">PhD Candidate in Health Informatics at the <strong>University of Melbourne</strong>, in a joint program with the <strong>Hebrew University of Jerusalem</strong>. I model longitudinal electronic health records with language models — from representation and explainability to <strong>privacy-preserving synthetic patient data generation</strong> with agentic AI.</p>
+    <div class="hero-links">
+      <a href="mailto:jie.huang5@student.unimelb.edu.au">email</a>
+      <a href="https://linkedin.com/in/jie-huang-hayley" target="_blank" rel="noopener">linkedin</a>
+      <a href="https://scholar.google.com" target="_blank" rel="noopener">scholar</a>
+      <a href="https://github.com" target="_blank" rel="noopener">github</a>
+      <a href="Jie_Huang_CV.pdf" target="_blank">cv.pdf</a>
+    </div>
+  </div>
+</header>
+
+<section id="research">
+  <div class="wrap">
+    <h2>Research Interests</h2>
+    <p class="sec-note">// how longitudinal clinical data should be represented, explained, and generated</p>
+    <div class="interest-grid">
+      <div class="interest">
+        <span class="k">REPRESENTATION</span>
+        <h3>EHR Serialization &amp; Foundation Models</h3>
+        <p>How longitudinal structured EHRs should be serialized as text for clinical language models, and how representation choices shape downstream prediction.</p>
+      </div>
+      <div class="interest">
+        <span class="k">EXPLAINABILITY</span>
+        <h3>Explainable Clinical Prediction</h3>
+        <p>Token-level explainability for EHR foundation models — revealing which parts of a patient's history drive model predictions.</p>
+      </div>
+      <div class="interest">
+        <span class="k">GENERATION</span>
+        <h3>Synthetic Patient Data</h3>
+        <p>Privacy-preserving generation of synthetic longitudinal patient trajectories, and evaluation frameworks for clinical plausibility.</p>
+      </div>
+      <div class="interest">
+        <span class="k">AGENTS</span>
+        <h3>Agentic AI for Clinical Data</h3>
+        <p>Agentic systems (DSPy / LangGraph) for patient-data modelling: structuring raw clinical records for agent consumption and designing clinical tools for agents.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <h2>Publications</h2>
+    <p class="sec-note">// † first author</p>
+    <div class="pub">
+      <span class="status accepted">IJCAI-ECAI 2026 · accepted</span>
+      <h3>X-FEMR: A Token-level Explainable Approach for Electronic Health Records Foundation Models using Transformer-based Models</h3>
+      <p class="authors"><b>Jie Huang†</b>, Pengfei Yin†, Zihan Xu, Daniel Capurro, Mike Conway, Ting Dang</p>
+      <p class="venue">Proceedings of the International Joint Conference on Artificial Intelligence (IJCAI-ECAI 2026), AI and Health Track — to appear</p>
+      <p class="plinks"><a href="https://arxiv.org/abs/2607.06163" target="_blank" rel="noopener">arXiv:2607.06163</a></p>
+    </div>
+    <div class="pub">
+      <span class="status review">under review</span>
+      <h3>How Longitudinal EHRs should be Serialized for Clinical Language Models? A Systematic Evaluation for Clinical Prediction</h3>
+      <p class="authors"><b>Jie Huang†</b>, Ting Dang, Galit Almoznino, Daniel Capurro</p>
+      <p class="venue">ACM Transactions on Computing for Healthcare (HEALTH)</p>
+    </div>
+  </div>
+</section>
+
+<section id="trajectory">
+  <div class="wrap">
+    <h2>Trajectory</h2>
+    <p class="sec-note">// a longitudinal record of my own care events — research, education, industry</p>
+    <div class="traj">
+
+      <div class="event">
+        <span class="ts">2025-02 →<br>present</span>
+        <h3>PhD Research — Synthetic Longitudinal Healthcare Data with Agentic AI</h3>
+        <p class="org">University of Melbourne · joint with Hebrew University of Jerusalem</p>
+        <ul>
+          <li>Systematic evaluation of EHR serialization strategies for clinical language models</li>
+          <li>Developed X-FEMR, a surrogate-model-based token-level explainability method for EHR foundation models</li>
+          <li>Harmonising structured EHR data across OMOP, MIMIC-IV and UK Biobank; large-scale training on HPC clusters</li>
+          <li>Ongoing: fine-tuning general-purpose and medical LLMs for synthetic patient trajectory generation, with clinical-plausibility evaluation frameworks</li>
+        </ul>
+      </div>
+
+      <div class="event">
+        <span class="ts">2026-S2</span>
+        <h3>Tutor — COMP90089 Machine Learning Applications for Health</h3>
+        <p class="org">University of Melbourne</p>
+        <p>Leading weekly tutorials on machine learning for clinical data (~200 postgraduate students).</p>
+      </div>
+
+      <div class="event">
+        <span class="ts">2024-03 →<br>2024-09</span>
+        <h3>LLM Engineer / AI Product Management</h3>
+        <p class="org">YepAI · Melbourne</p>
+        <p>LLM evaluation for production AI assistants; fine-tuned GPT-3.5 for intent classification; automated video curation with YOLOv3 across 1,000+ videos.</p>
+      </div>
+
+      <div class="event">
+        <span class="ts">2024-03 →<br>2024-06</span>
+        <h3>Master's Research — Modelling Patient Trajectories</h3>
+        <p class="org">University of Melbourne</p>
+        <p>Built text representations of MIMIC-IV patient trajectories; compared knowledge-based, K-Means and autoencoder abstraction methods on mortality prediction. Thesis 83/100.</p>
+      </div>
+
+      <div class="event">
+        <span class="ts">2022-07 →<br>2024-07</span>
+        <h3>Master of Information Technology (Artificial Intelligence)</h3>
+        <p class="org">University of Melbourne</p>
+        <p>Graduated with Distinction · WAM 80.5</p>
+      </div>
+
+      <div class="event">
+        <span class="ts">2021-08 →<br>2022-07</span>
+        <h3>Data Analyst — Autonomous Driving</h3>
+        <p class="org">WeRide · Guangzhou</p>
+        <p>Reconstructed road-test incidents as simulation scenarios; queried, cleaned and analysed simulation and road-test data with Python.</p>
+      </div>
+
+      <div class="event">
+        <span class="ts">2019-07 →<br>2021-07</span>
+        <h3>BEng Electrical &amp; Electronic Engineering</h3>
+        <p class="org">University of South Australia</p>
+        <p>First Class Honours · WAM 6.66/7.0 · two Chancellor's Letters of Commendation (top 5%)</p>
+      </div>
+
+      <div class="event">
+        <span class="ts">2017-09 →<br>2019-07</span>
+        <h3>Bachelor of Engineering</h3>
+        <p class="org">Xi'an University of Architecture and Technology</p>
+        <p>GPA 83.5/100 · ranked 2nd in cohort</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="wrap">
+    <h2>Teaching</h2>
+    <p class="sec-note">// COMP90089 Machine Learning Applications for Health · University of Melbourne</p>
+    <ul class="plain-list">
+      <li><span>Tutor — weekly tutorials on ML for clinical data, ~200 postgraduate students</span><span class="yr">2026 S2</span></li>
+      <li><span>Marker — programming assignments and group projects on ML for healthcare data</span><span class="yr">2025 S2</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="wrap">
+    <h2>Awards &amp; Scholarships</h2>
+    <p class="sec-note">// selected recognition</p>
+    <ul class="plain-list">
+      <li><span>Melbourne Research Scholarship, University of Melbourne</span><span class="yr">2025</span></li>
+      <li><span>Master of IT awarded with Distinction, University of Melbourne</span><span class="yr">2024</span></li>
+      <li><span>First Class Honours, University of South Australia</span><span class="yr">2021</span></li>
+      <li><span>Chancellor's Letters of Commendation ×2 (top 5% of cohort), UniSA</span><span class="yr">2020–21</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills &amp; Community</h2>
+    <p class="sec-note">// tools of the trade</p>
+    <div class="skill-row">
+      <span class="k">ML &amp; LLMS</span>
+      <div class="chips"><span class="chip">LLM fine-tuning &amp; evaluation</span><span class="chip">LangGraph / DSPy</span><span class="chip">Transformers</span><span class="chip">GANs</span><span class="chip">Autoencoders</span><span class="chip">Explainability</span></div>
+    </div>
+    <div class="skill-row">
+      <span class="k">HEALTH DATA</span>
+      <div class="chips"><span class="chip">OMOP CDM</span><span class="chip">MIMIC-IV</span><span class="chip">UK Biobank</span><span class="chip">MEDS</span><span class="chip">EHR modelling</span></div>
+    </div>
+    <div class="skill-row">
+      <span class="k">PROGRAMMING</span>
+      <div class="chips"><span class="chip">Python</span><span class="chip">SQL / BigQuery</span><span class="chip">PyTorch</span><span class="chip">HPC / Slurm</span><span class="chip">Git</span></div>
+    </div>
+    <div class="skill-row">
+      <span class="k">COMMUNITY</span>
+      <div class="chips"><span class="chip">Volunteer · IJCAI-ECAI 2026, Bremen</span><span class="chip">Volunteer · HIC 2024–25, AIDH</span><span class="chip">Uniting AgeWell, Melbourne</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Jie Huang</span>
+    <span class="mono">last_updated: 2026-08 · built with plain HTML/CSS</span>
+  </div>
+</footer>
+
+</body>
+</html>
